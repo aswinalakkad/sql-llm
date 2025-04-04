@@ -18,7 +18,6 @@ def get_gemini_response(question, prompt):
     response = model.generate_content([prompt[0], question])
     return response.text
 
-import load_dotenv
 import streamlit as st
 import os
 import sqlite3
