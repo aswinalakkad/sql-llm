@@ -12,10 +12,11 @@ genai.configure(api_key="AIzaSyB-4NIkdRvAcOxq70gUJkArLTa6dky5ewI")
 
 ## Function To Load Google Gemini Model and provide queries as response
 
-def get_gemini_response(question,prompt):
-    model=genai.GenerativeModel('gemini-pro')
-    response=model.generate_content([prompt[0],question])
-    return response.textfrom dotenv 
+
+def get_gemini_response(question, prompt):
+    model = genai.GenerativeModel('gemini-pro')
+    response = model.generate_content([prompt[0], question])
+    return response.text
 
 import load_dotenv
 import streamlit as st
