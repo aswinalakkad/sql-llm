@@ -6,16 +6,25 @@ import os
 import sqlite3
 
 import google.generativeai as genai
-## Configure Genai Key
 
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+import os
+import google.generativeai as genai
+from dotenv import load_dotenv
 
-## Function To Load Google Gemini Model and provide queries as response
+load_dotenv()
 
-def get_gemini_response(question,prompt):
+# Make sure the API key is loaded
+api_key = os.getenv("GOOGLE_API_KEY")
+if not api_key:
+    raise ValueError("Missing GOOGLE_API_KEY in .env file")
+
+genai.configure(api_key=api_key)
+
+def get_gemini_response(question, prompt):
     model = genai.GenerativeModel(model_name='models/gemini-pro')
-    response=model.generate_content([prompt[0],question])
+    response = model.generate_content([prompt[0], question])
     return response.text
+
 
 ## Fucntion To retrieve query from the database
 
