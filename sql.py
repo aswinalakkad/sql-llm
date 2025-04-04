@@ -15,7 +15,9 @@ genai.configure(api_key="AIzaSyB-4NIkdRvAcOxq70gUJkArLTa6dky5ewI")
 def get_gemini_response(question,prompt):
     model=genai.GenerativeModel('gemini-pro')
     response=model.generate_content([prompt[0],question])
-    return response.textfrom dotenv import load_dotenv
+    return response.textfrom dotenv 
+
+import load_dotenv
 import streamlit as st
 import os
 import sqlite3
