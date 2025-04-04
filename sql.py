@@ -17,7 +17,7 @@ genai.configure(api_key=api_key)
 # Function to get Gemini response
 def get_gemini_response(question, prompt):
     try:
-        model = genai.GenerativeModel(model_name="gemini-pro")  # 'gemini-pro' works here if your API key has access
+        model = genai.GenerativeModel(model_name="gemini")  # 'gemini-pro' works here if your API key has access
         response = model.generate_content([prompt[0], question])
         return response.text
     except Exception as e:
